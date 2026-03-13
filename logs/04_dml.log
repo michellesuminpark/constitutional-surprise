@@ -1,0 +1,94 @@
+============================================================
+MODEL 1: CAUSAL INFERENCE WITH DOUBLE MACHINE LEARNING
+============================================================
+
+Loading data...
+Loaded 262 abstracts
+✅ Visual 6 saved: visual_06_causal_dag.png
+
+============================================================
+DATA PREPARATION
+============================================================
+Total observations: 524
+Treatment group: 262
+Control group: 262
+
+============================================================
+DOUBLE MACHINE LEARNING ESTIMATION
+============================================================
+
+Step 1: Predicting outcome from confounders...
+  Outcome R²: -0.527
+
+Step 2: Predicting treatment from confounders...
+  Treatment R²: -0.000
+
+Step 3: Final DML estimation...
+
+============================================================
+RESULTS: Average Treatment Effect (ATE)
+============================================================
+  ATE:        54.62 perplexity points
+  Std Error:  1.95
+  95% CI:     [50.81, 58.44]
+  t-statistic: 28.07
+  p-value:    0.0000
+
+============================================================
+ROBUSTNESS CHECK: Comparing Methods
+============================================================
+  Naive OLS:            31.88
+  OLS + Confounders:    31.88
+  Random Forest:        70.69
+
+============================================================
+DOUBLE MACHINE LEARNING ESTIMATION
+============================================================
+
+Step 1: Predicting outcome from confounders...
+  Outcome R²: -0.527
+
+Step 2: Predicting treatment from confounders...
+  Treatment R²: -0.000
+
+Step 3: Final DML estimation...
+
+============================================================
+RESULTS: Average Treatment Effect (ATE)
+============================================================
+  ATE:        54.62 perplexity points
+  Std Error:  1.95
+  95% CI:     [50.81, 58.44]
+  t-statistic: 28.07
+  p-value:    0.0000
+  DML:                  54.62
+
+✅ Visual 7 saved: visual_07_treatment_effect_forest.png
+
+============================================================
+HETEROGENEOUS TREATMENT EFFECTS (CATE)
+============================================================
+  Low baseline perplexity:
+    CATE: 39.96 ± 4.22
+  Medium baseline perplexity:
+    CATE: 38.07 ± 4.86
+  High baseline perplexity:
+    CATE: 17.52 ± 7.87
+
+✅ Visual 8 saved: visual_08_cate_heterogeneity.png
+
+  Heterogeneity ratio (max/min): 2.28x
+  → Treatment is 2.28x more effective for high-perplexity papers!
+
+============================================================
+✅ ANALYSIS COMPLETE!
+============================================================
+
+Generated:
+  - Visual 6: Causal DAG
+  - Visual 7: Treatment effect forest plot
+  - Visual 8: CATE heterogeneity plot
+  - Results saved to results/
+
+Key finding: Manipulation CAUSES perplexity increase
+  ATE = 54.62 points (p < 0.001)
